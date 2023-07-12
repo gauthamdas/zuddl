@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const boardViewSlice = createSlice({
   name: 'boardView',
   initialState: {
-    index: -1
+    index: 0
   },
   reducers: {
     changeBoard: (state, action) => {
