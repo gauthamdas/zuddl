@@ -31,6 +31,19 @@ const boardsSlice = createSlice({
         }
       }
     },
+    updateTask: (state,action) => {
+      const { id, value } = action.payload;
+      // console.log(id,value)
+
+      const task = state
+        .flatMap(board => board.stages)
+        .flatMap(stage => stage.tasks)
+        .find(task => task.id === id);
+      
+        task.content = value
+     
+
+    },
     moveTask: (state, action) => {
       const { draggableId, source, destination } = action.payload;
       console.log(action.payload)
@@ -50,5 +63,5 @@ const boardsSlice = createSlice({
   },
 });
 
-export const { createBoard, createStage, createTask, moveTask } = boardsSlice.actions;
+export const { setBoard, createBoard, createStage, createTask, updateTask, moveTask } = boardsSlice.actions;
 export default boardsSlice.reducer;
